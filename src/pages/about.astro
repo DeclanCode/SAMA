@@ -1,0 +1,91 @@
+---
+// src/pages/about.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About - SAMA">
+  <section class="about">
+    <div class="about-text">
+      <h1>About</h1>
+      <p>Dani and Declan</p>
+    </div>
+    <div class="about-image">
+      <img src="/about.jpg" alt="Guests at wedding" />
+    </div>
+  </section>
+
+  <style>
+    html, body {
+  background-color: #e9fcfd;
+}
+
+    .about {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 4rem 8vw 6rem;
+      background-color: #e9fcfd; /* ✅ Light blue background */
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .about-text h1 {
+      font-size: 4.2rem;
+      color: #e00000;
+      font-family: 'Georgia', serif;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      font-size: 1.7rem;
+      font-family: 'Georgia', serif;
+      color: #e00000;
+    }
+
+    .about-image {
+      flex: 1.2;
+      min-width: 300px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      margin-top: 3rem;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 650px;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .about {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 2rem 4rem;
+      }
+
+      .about-text h1 {
+        font-size: 3rem;
+      }
+
+      .about-text p {
+        font-size: 1.3rem;
+      }
+
+      .about-image {
+        justify-content: center;
+        margin-top: 2rem;
+      }
+    }
+  </style>
+</Layout>

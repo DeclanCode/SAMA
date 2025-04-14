@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Read all image filenames from public/gallery/
+const imageDir = path.resolve('./public/gallery');
+const imageFiles = fs.readdirSync(imageDir).filter(file =>
+  /\.(jpe?g|png|webp|gif)$/i.test(file)
+);
+---
+
+<Layout title="Gallery - SAMA">
+  <section class="gallery">
+    <h1>Gallery</h1>
+    <div class="gallery-grid">
+      {imageFiles.map(file => (
+        <img src={`/gallery/${file}`} alt={file} loading="lazy" />
+      ))}
+    </div>
+  </section>
+
+  <style>
+    html, body {
+      background-color: #e9fcfd;
+    }
+
+    .gallery {
+      padding: 5rem 8vw;
+    }
+
+    .gallery h1 {
+      font-size: 4rem;
+      color: #e00000;
+      font-family: 'Georgia', serif;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        padding: 3rem 2rem;
+      }
+
+      .gallery h1 {
+        font-size: 3rem;
+        text-align: center;
+      }
+    }
+  </style>
+</Layout>

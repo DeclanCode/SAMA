@@ -1,0 +1,123 @@
+---
+// src/layouts/Layout.astro
+const { title = "SAMA" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Georgia', serif;
+      }
+
+      header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        padding: 1.5rem 2rem;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        height: 120px;
+      }
+
+      a.logo {
+        font-size: clamp(3rem, 6vw, 5.5rem); /* responsive sizing */
+        color: #e00000;
+        font-weight: bold;
+        text-decoration: none;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+      }
+
+      nav {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+      }
+
+      /* 🌐 Mobile Styles */
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background: rgba(0, 0, 0, 0.85);
+          flex-direction: column;
+          align-items: flex-end;
+          padding: 1rem 2rem;
+        }
+
+        nav.show {
+          display: flex;
+        }
+
+        .menu-toggle {
+          display: block;
+          z-index: 11;
+        }
+
+        header {
+          padding: 1rem;
+          height: auto;
+        }
+      }
+    </style>
+    <script>
+      function toggleMenu() {
+        const nav = document.querySelector('nav');
+        nav.classList.toggle('show');
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <a href="/" class="logo">SAMA</a>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav>
+        <a href="/about">about</a>
+        <a href="/gallery">gallery</a>
+        <a href="/pricing">packages</a>
+        <a href="/contact">contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
