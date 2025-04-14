@@ -14,8 +14,13 @@ import Layout from '../layouts/Layout.astro';
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      /* No background-attachment — so it scrolls away normally */
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        height: 60vh; /* Smaller height for mobile */
+        background-position: top center; /* Optional tweak */
+      }
     }
   </style>
 </Layout>
-
