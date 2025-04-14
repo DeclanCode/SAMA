@@ -34,7 +34,7 @@ const { title = "SAMA" } = Astro.props;
       }
 
       a.logo {
-        font-size: clamp(3rem, 6vw, 5.5rem); /* responsive sizing */
+        font-size: clamp(3rem, 6vw, 5.5rem);
         color: #e00000;
         font-weight: bold;
         text-decoration: none;
@@ -97,17 +97,12 @@ const { title = "SAMA" } = Astro.props;
         }
       }
     </style>
-    <script>
-      function toggleMenu() {
-        const nav = document.querySelector('nav');
-        nav.classList.toggle('show');
-      }
-    </script>
   </head>
+
   <body>
     <header>
       <a href="/" class="logo">SAMA</a>
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <button class="menu-toggle">☰</button>
       <nav>
         <a href="/about">about</a>
         <a href="/gallery">gallery</a>
@@ -119,5 +114,15 @@ const { title = "SAMA" } = Astro.props;
     <main>
       <slot />
     </main>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        toggleBtn?.addEventListener('click', () => {
+          nav?.classList.toggle('show');
+        });
+      });
+    </script>
   </body>
 </html>
