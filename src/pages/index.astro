@@ -1,25 +1,49 @@
 ---
-// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="SAMA - Home">
-  <div class="hero"></div>
+  <div class="hero">
+    <div class="hero-text">
+      Capturing your moments in a fucking cool looking steeze
+    </div>
+  </div>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap');
+
     .hero {
+      position: relative;
       height: 100vh;
       width: 100%;
       background-image: url('/hero.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-text {
+      font-size: 2.8rem;
+      color: white;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      max-width: 90%;
     }
 
     @media (max-width: 768px) {
       .hero {
-        height: 60vh; /* Smaller height for mobile */
-        background-position: top center; /* Optional tweak */
+        height: 60vh;
+        background-position: top center;
+      }
+
+      .hero-text {
+        font-size: 1.6rem;
+        padding: 0 1rem;
       }
     }
   </style>

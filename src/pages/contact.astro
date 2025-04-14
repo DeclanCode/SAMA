@@ -1,0 +1,278 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact - SAMA">
+  <section class="contact">
+    <!-- 💬 Contact Form -->
+    <div class="contact-form">
+      <h1>Contact</h1>
+      <form 
+        id="contactForm" 
+        name="contact" 
+        method="POST" 
+        data-netlify="true" 
+        netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden">
+          <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+
+        <div class="form-row">
+          <label>
+            First Name:*<br />
+            <input type="text" name="first-name" required placeholder="Please provide your first name" />
+          </label>
+          <label>
+            Last Name:*<br />
+            <input type="text" name="last-name" required placeholder="Please provide your last name" />
+          </label>
+        </div>
+
+        <label>
+          Email:*<br />
+          <input type="email" name="email" required placeholder="Please provide your email address" />
+        </label>
+
+        <label>
+          Phone:<br />
+          <input type="tel" name="phone" />
+        </label>
+
+        <label>
+          Would you like a call back to chat about your plans?<br />
+          <select name="callback">
+            <option>Select</option>
+            <option value="yes">Yes please</option>
+            <option value="no">No thanks</option>
+          </select>
+        </label>
+
+        <label>
+          What date is your Wedding?*<br />
+          <input type="date" name="wedding-date" required />
+        </label>
+
+        <label>
+          Where is your Wedding?<br />
+          <textarea name="wedding-location" rows="3"></textarea>
+        </label>
+
+        <label>
+          Message<br />
+          <textarea name="message" rows="3"></textarea>
+        </label>
+
+        <label>
+          Check all that you are looking for assistance with:
+        </label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="help[]" value="Google" /> Google</label>
+          <label><input type="checkbox" name="help[]" value="Word of Mouth" /> Word of Mouth</label>
+          <label><input type="checkbox" name="help[]" value="Social Media" /> Social Media</label>
+        </div>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <!-- ✅ Success Popup -->
+      <div class="form-success hidden" id="formSuccess">
+        <p>Thank you! Your message has been sent 🎉</p>
+        <button onclick="document.getElementById('formSuccess').classList.add('hidden')">Close</button>
+      </div>
+    </div>
+
+    <!-- 📸 Contact Image -->
+    <div class="contact-image">
+      <img src="/contact.jpg" alt="Disco ball hanging in tree" />
+    </div>
+  </section>
+
+  <!-- 💅 Style block -->
+  <style>
+    html, body {
+      background-color: #e9fcfd;
+    }
+
+    .contact {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 4rem 8vw 6rem;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+      font-family: 'Georgia', serif;
+      position: relative;
+    }
+
+    .contact-form h1 {
+      font-size: 4rem;
+      color: #e00000;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .form-row input {
+      flex: 1;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: 'Georgia', serif;
+    }
+
+    .checkbox-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .checkbox-group label {
+      font-size: 0.95rem;
+    }
+
+    button[type="submit"] {
+      margin-top: 1.5rem;
+      background-color: #e00000;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Georgia', serif;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #b00000;
+    }
+
+    .contact-image {
+      flex: 1.2;
+      min-width: 300px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      margin-top: 3rem;
+    }
+
+    .contact-image img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .form-success {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 2rem 2.5rem;
+      border: 2px solid #e00000;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      text-align: center;
+    }
+
+    .form-success p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .form-success button {
+      background-color: #e00000;
+      color: white;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .form-success.hidden {
+      display: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .contact {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 2rem 4rem;
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+
+      .contact-image {
+        justify-content: center;
+        margin-top: 2rem;
+      }
+
+      .contact-form h1 {
+        font-size: 3rem;
+      }
+    }
+  </style>
+
+  <!-- ✅ JS for custom popup -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contactForm');
+      const successPopup = document.getElementById('formSuccess');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        try {
+          await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+          });
+
+          form.reset();
+          successPopup.classList.remove('hidden');
+        } catch (err) {
+          alert('Something went wrong. Please try again later.');
+        }
+      });
+    });
+  </script>
+</Layout>

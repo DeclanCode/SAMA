@@ -1,0 +1,173 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Packages - SAMA">
+  <!-- 🟥 ESMERALDA Package -->
+  <section class="packages">
+    <div class="packages-text">
+      <h1>Packages</h1>
+      <div class="package-details">
+        <h2>Esmeralda</h2>
+        <ul>
+          <li>Wedding ceremony</li>
+          <li>Detail shots of venue</li>
+          <li>Family and group photos</li>
+          <li>Bridal party shoot</li>
+          <li>Bride and groom shoot</li>
+          <li>3 hours coverage</li>
+          <li>30+ Sneak peeks within 4 days of the wedding day</li>
+          <li>150+ high resolution, print-ready images delivered via private gallery</li>
+        </ul>
+        <p class="price">$1,700</p>
+      </div>
+    </div>
+
+    <div class="packages-image">
+      <img src="/packages.jpg" alt="Outdoor sitting area with house" />
+    </div>
+  </section>
+
+  <!-- 🟦 DIAMANTE Package -->
+  <section class="packages reverse">
+    <div class="packages-image">
+      <img src="/packages2.jpg" alt="Elegant wedding moment" />
+    </div>
+
+    <div class="packages-text">
+      <div class="package-details">
+        <h2>Diamante</h2>
+        <ul>
+          <li>Wedding ceremony</li>
+          <li>Detail shots of venue</li>
+          <li>Family and group photos</li>
+          <li>Bridal party shoot</li>
+          <li>Bride and groom shoot</li>
+          <li>4 hours coverage</li>
+          <li>30+ Sneak peeks within 4 days of the wedding day</li>
+          <li>250+ high resolution, print-ready images delivered via private gallery</li>
+        </ul>
+        <p class="price">$2,200 <span class="add-on">add video from $2,000</span></p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    html, body {
+      background-color: #e9fcfd;
+    }
+
+    .packages {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 4rem 8vw 6rem;
+      background-color: #e9fcfd;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .packages.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .packages-text {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .packages-text h1 {
+      font-size: 4.2rem;
+      color: #e00000;
+      font-family: 'Georgia', serif;
+      margin-bottom: 1.5rem;
+    }
+
+    .package-details {
+      font-family: 'Georgia', serif;
+      color: #333;
+    }
+
+    .package-details h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .package-details ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .package-details li {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .package-details .price {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #e00000;
+    }
+
+    .package-details .add-on {
+      display: block;
+      font-size: 1rem;
+      font-weight: normal;
+      color: #444;
+      margin-top: 0.5rem;
+    }
+
+    .packages-image {
+      flex: 1.2;
+      min-width: 300px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      margin-top: 3rem;
+    }
+
+    .packages-image img {
+      width: 100%;
+      max-width: 650px;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .packages,
+      .packages.reverse {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 2rem 4rem;
+      }
+
+      .packages-image {
+        justify-content: center;
+        margin-top: 2rem;
+      }
+
+      .packages-text h1 {
+        font-size: 3rem;
+      }
+
+      .package-details h2 {
+        font-size: 1.6rem;
+      }
+
+      .package-details li {
+        font-size: 1rem;
+      }
+
+      .package-details .price {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</Layout>
