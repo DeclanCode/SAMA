@@ -3,51 +3,55 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Packages - SAMA">
-  <!-- 🟥 ESMERALDA Package -->
+  <!-- 🟥 ESMERALDA -->
   <section class="packages">
-    <div class="packages-text">
-      <h1>Packages</h1>
-      <div class="package-details">
-        <h2>Esmeralda</h2>
-        <ul>
-          <li>Wedding ceremony</li>
-          <li>Detail shots of venue</li>
-          <li>Family and group photos</li>
-          <li>Bridal party shoot</li>
-          <li>Bride and groom shoot</li>
-          <li>3 hours coverage</li>
-          <li>30+ Sneak peeks within 4 days of the wedding day</li>
-          <li>150+ high resolution, print-ready images delivered via private gallery</li>
-        </ul>
-        <p class="price">$1,700</p>
+    <div class="packages-inner">
+      <div class="packages-text">
+        <h1>Packages</h1>
+        <div class="package-details">
+          <h2>Esmeralda</h2>
+          <ul>
+            <li>Wedding ceremony</li>
+            <li>Detail shots of venue</li>
+            <li>Family and group photos</li>
+            <li>Bridal party shoot</li>
+            <li>Bride and groom shoot</li>
+            <li>3 hours coverage</li>
+            <li>30+ Sneak peeks within 4 days of the wedding day</li>
+            <li>150+ high resolution, print-ready images delivered via private gallery</li>
+          </ul>
+          <p class="price">$1,700</p>
+        </div>
       </div>
-    </div>
 
-    <div class="packages-image">
-      <img src="/packages.jpg" alt="Outdoor sitting area with house" />
+      <div class="packages-image">
+        <img src="/packages.jpg" alt="Outdoor sitting area with house" />
+      </div>
     </div>
   </section>
 
-  <!-- 🟦 DIAMANTE Package -->
-  <section class="packages reverse">
-    <div class="packages-image">
-      <img src="/packages2.jpg" alt="Elegant wedding moment" />
-    </div>
+  <!-- 🟦 DIAMANTE -->
+  <section class="packages">
+    <div class="packages-inner reverse">
+      <div class="packages-text">
+        <div class="package-details">
+          <h2>Diamante</h2>
+          <ul>
+            <li>Wedding ceremony</li>
+            <li>Detail shots of venue</li>
+            <li>Family and group photos</li>
+            <li>Bridal party shoot</li>
+            <li>Bride and groom shoot</li>
+            <li>4 hours coverage</li>
+            <li>30+ Sneak peeks within 4 days of the wedding day</li>
+            <li>250+ high resolution, print-ready images delivered via private gallery</li>
+          </ul>
+          <p class="price">$2,200 <span class="add-on">add video from $2,000</span></p>
+        </div>
+      </div>
 
-    <div class="packages-text">
-      <div class="package-details">
-        <h2>Diamante</h2>
-        <ul>
-          <li>Wedding ceremony</li>
-          <li>Detail shots of venue</li>
-          <li>Family and group photos</li>
-          <li>Bridal party shoot</li>
-          <li>Bride and groom shoot</li>
-          <li>4 hours coverage</li>
-          <li>30+ Sneak peeks within 4 days of the wedding day</li>
-          <li>250+ high resolution, print-ready images delivered via private gallery</li>
-        </ul>
-        <p class="price">$2,200 <span class="add-on">add video from $2,000</span></p>
+      <div class="packages-image">
+        <img src="/packages2.jpg" alt="Elegant wedding moment" />
       </div>
     </div>
   </section>
@@ -58,16 +62,19 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .packages {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
       padding: 4rem 8vw 6rem;
       background-color: #e9fcfd;
-      gap: 4rem;
-      flex-wrap: wrap;
     }
 
-    .packages.reverse {
+    .packages-inner {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 4rem;
+    }
+
+    .packages-inner.reverse {
       flex-direction: row-reverse;
     }
 
@@ -124,37 +131,29 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .packages-image {
-  flex: 1.2;
-  min-width: 300px;
-  display: flex;
-  align-items: flex-start;
-  margin-top: 3rem;
-}
-
-/* This overrides the direction when the section is reversed */
-.packages:not(.reverse) .packages-image {
-  justify-content: flex-end;
-}
-
-.packages.reverse .packages-image {
-  justify-content: flex-start;
-}
-
+      flex: 1.2;
+      min-width: 300px;
+      max-width: 650px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 3rem;
+    }
 
     .packages-image img {
       width: 100%;
-      max-width: 650px;
+      max-width: 100%;
       height: auto;
       border-radius: 8px;
       object-fit: cover;
     }
 
     @media (max-width: 768px) {
-      .packages,
-      .packages.reverse {
+      .packages-inner,
+      .packages-inner.reverse {
         flex-direction: column;
+        flex-wrap: wrap;
         text-align: center;
-        padding: 3rem 2rem 4rem;
       }
 
       .packages-image {
