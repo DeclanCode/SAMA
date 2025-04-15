@@ -1,5 +1,4 @@
 ---
-// src/layouts/Layout.astro
 const { title = "SAMA" } = Astro.props;
 ---
 
@@ -21,20 +20,19 @@ const { title = "SAMA" } = Astro.props;
       }
 
       header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  padding: 1.5rem 2rem;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  height: 120px;
-  background-color: #fff; /* 👀 Make sure it doesn't go transparent when scrolling */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* optional, but looks nice */
-}
-
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        padding: 1.5rem 2rem;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        height: 120px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
 
       a.logo {
         font-size: clamp(3rem, 6vw, 5.5rem);
@@ -68,8 +66,9 @@ const { title = "SAMA" } = Astro.props;
         background: none;
         border: none;
         font-size: 2rem;
-        color: white;
+        color: #e00000; /* 🔧 fixed from white */
         cursor: pointer;
+        z-index: 11;
       }
 
       /* 🌐 Mobile Styles */
@@ -91,7 +90,6 @@ const { title = "SAMA" } = Astro.props;
 
         .menu-toggle {
           display: block;
-          z-index: 11;
         }
 
         header {
