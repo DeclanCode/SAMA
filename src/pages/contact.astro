@@ -4,7 +4,6 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Contact - SAMA">
   <section class="contact">
-    <!-- 💬 Contact Form -->
     <div class="contact-form">
       <h1>Contact</h1>
       <form 
@@ -20,15 +19,16 @@ import Layout from '../layouts/Layout.astro';
           <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
         </p>
 
+        <!-- 🔧 First + Last Name Row -->
         <div class="form-row">
-          <label>
-            First Name:*<br />
-            <input type="text" name="first-name" required placeholder="Please provide your first name" />
-          </label>
-          <label>
-            Last Name:*<br />
-            <input type="text" name="last-name" required placeholder="Please provide your last name" />
-          </label>
+          <div class="form-field">
+            <label for="first-name">First Name:*</label>
+            <input type="text" name="first-name" id="first-name" required placeholder="Please provide your first name" />
+          </div>
+          <div class="form-field">
+            <label for="last-name">Last Name:*</label>
+            <input type="text" name="last-name" id="last-name" required placeholder="Please provide your last name" />
+          </div>
         </div>
 
         <label>
@@ -66,7 +66,7 @@ import Layout from '../layouts/Layout.astro';
         </label>
 
         <label>
-          Check all that you are looking for assistance with:
+          Where did you find us?
         </label>
         <div class="checkbox-group">
           <label><input type="checkbox" name="help[]" value="Google" /> Google</label>
@@ -83,7 +83,7 @@ import Layout from '../layouts/Layout.astro';
         <button onclick="document.getElementById('formSuccess').classList.add('hidden')">Close</button>
       </div>
 
-      <!-- 🧠 Netlify Detection Helper -->
+      <!-- 🧠 Netlify fallback -->
       <noscript>
         <form name="contact" netlify>
           <input type="text" name="first-name" />
@@ -94,7 +94,7 @@ import Layout from '../layouts/Layout.astro';
       </noscript>
     </div>
 
-    <!-- 📸 Contact Image -->
+    <!-- 📸 Image -->
     <div class="contact-image">
       <img src="/contact.jpg" alt="Disco ball hanging in tree" />
     </div>
@@ -133,28 +133,35 @@ import Layout from '../layouts/Layout.astro';
       gap: 1.2rem;
     }
 
+    /* 💡 Fixes the row layout */
     .form-row {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
     }
 
-    .form-row input {
+    .form-field {
       flex: 1;
+      min-width: 250px;
+      display: flex;
+      flex-direction: column;
     }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="date"],
-    select,
-    textarea {
+    .form-field label {
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    input,
+    textarea,
+    select {
       width: 100%;
       padding: 0.75rem;
       border: 1px solid #ccc;
       border-radius: 4px;
       font-size: 1rem;
       font-family: 'Georgia', serif;
+      box-sizing: border-box;
     }
 
     .checkbox-group {
@@ -269,11 +276,8 @@ import Layout from '../layouts/Layout.astro';
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // ✅ Get values from the form
         const firstName = form.querySelector('input[name="first-name"]').value.trim();
         const weddingDate = form.querySelector('input[name="wedding-date"]').value;
-
-        // 🏷️ Set the submission title to "FirstName - WeddingDate"
         titleInput.value = `${firstName} - ${weddingDate}`;
 
         const formData = new FormData(form);
