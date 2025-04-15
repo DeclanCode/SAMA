@@ -133,7 +133,6 @@ import Layout from '../layouts/Layout.astro';
       gap: 1.2rem;
     }
 
-    /* 💡 Fixes the row layout */
     .form-row {
       display: flex;
       gap: 1rem;
@@ -209,7 +208,7 @@ import Layout from '../layouts/Layout.astro';
 
     .form-success {
       position: absolute;
-      top: 20%;
+      top: 60%; /* lowered position */
       left: 50%;
       transform: translate(-50%, -50%);
       background: white;
@@ -277,7 +276,8 @@ import Layout from '../layouts/Layout.astro';
         e.preventDefault();
 
         const firstName = form.querySelector('input[name="first-name"]').value.trim();
-        const weddingDate = form.querySelector('input[name="wedding-date"]').value;
+        const rawDate = form.querySelector('input[name="wedding-date"]').value;
+        const weddingDate = rawDate ? new Date(rawDate).toLocaleDateString('en-GB') : '';
         titleInput.value = `${firstName} - ${weddingDate}`;
 
         const formData = new FormData(form);
