@@ -81,6 +81,16 @@ import Layout from '../layouts/Layout.astro';
         <p>Thank you! Your message has been sent 🎉</p>
         <button onclick="document.getElementById('formSuccess').classList.add('hidden')">Close</button>
       </div>
+
+      <!-- 🧠 Netlify Detection Helper -->
+      <noscript>
+        <form name="contact" netlify>
+          <input type="text" name="first-name" />
+          <input type="text" name="last-name" />
+          <input type="email" name="email" />
+          <button type="submit">Send</button>
+        </form>
+      </noscript>
     </div>
 
     <!-- 📸 Contact Image -->
@@ -89,7 +99,6 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- 💅 Style block -->
   <style>
     html, body {
       background-color: #e9fcfd;
@@ -250,7 +259,6 @@ import Layout from '../layouts/Layout.astro';
     }
   </style>
 
-  <!-- ✅ JS for custom popup -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.getElementById('contactForm');
