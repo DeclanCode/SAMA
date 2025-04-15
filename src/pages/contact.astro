@@ -259,22 +259,31 @@ import Layout from '../layouts/Layout.astro';
     }
   </style>
 
-  <script>
+<script>
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.getElementById('contactForm');
       const successPopup = document.getElementById('formSuccess');
-
+      const titleInput = document.getElementById('submissionTitle');
+  
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
+  
+        // ✅ Pull values from inputs
+        const firstName = form.querySelector('input[name="first-name"]').value;
+        const weddingDate = form.querySelector('input[name="wedding-date"]').value;
+  
+        // 🏷️ Set custom submission title
+        titleInput.value = `${firstName} - ${weddingDate}`;
+  
         const formData = new FormData(form);
-
+  
         try {
           await fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(formData).toString()
           });
-
+  
           form.reset();
           successPopup.classList.remove('hidden');
         } catch (err) {
@@ -283,4 +292,5 @@ import Layout from '../layouts/Layout.astro';
       });
     });
   </script>
+  
 </Layout>
