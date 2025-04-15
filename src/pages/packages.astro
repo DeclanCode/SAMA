@@ -124,13 +124,22 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .packages-image {
-      flex: 1.2;
-      min-width: 300px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-end;
-      margin-top: 3rem;
-    }
+  flex: 1.2;
+  min-width: 300px;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 3rem;
+}
+
+/* This overrides the direction when the section is reversed */
+.packages:not(.reverse) .packages-image {
+  justify-content: flex-end;
+}
+
+.packages.reverse .packages-image {
+  justify-content: flex-start;
+}
+
 
     .packages-image img {
       width: 100%;
