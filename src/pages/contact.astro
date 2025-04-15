@@ -15,6 +15,7 @@ import Layout from '../layouts/Layout.astro';
         netlify-honeypot="bot-field"
       >
         <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="submission-title" id="submissionTitle" />
         <p class="hidden">
           <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
         </p>
@@ -259,31 +260,31 @@ import Layout from '../layouts/Layout.astro';
     }
   </style>
 
-<script>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.getElementById('contactForm');
       const successPopup = document.getElementById('formSuccess');
       const titleInput = document.getElementById('submissionTitle');
-  
+
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
-  
-        // ✅ Pull values from inputs
-        const firstName = form.querySelector('input[name="first-name"]').value;
+
+        // ✅ Get values from the form
+        const firstName = form.querySelector('input[name="first-name"]').value.trim();
         const weddingDate = form.querySelector('input[name="wedding-date"]').value;
-  
-        // 🏷️ Set custom submission title
+
+        // 🏷️ Set the submission title to "FirstName - WeddingDate"
         titleInput.value = `${firstName} - ${weddingDate}`;
-  
+
         const formData = new FormData(form);
-  
+
         try {
           await fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(formData).toString()
           });
-  
+
           form.reset();
           successPopup.classList.remove('hidden');
         } catch (err) {
@@ -292,5 +293,4 @@ import Layout from '../layouts/Layout.astro';
       });
     });
   </script>
-  
 </Layout>
