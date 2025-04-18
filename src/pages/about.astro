@@ -1,90 +1,102 @@
 ---
-// src/pages/about.astro
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="About - SAMA">
-  <section class="about">
+  <section class="about-hero">
+    <img src="/public/webAK-1-Sama Web-2.jpg" alt="Close up woman outdoors" />
+    <div class="about-vertical">ABOUT</div>
+  </section>
+
+  <section class="about-body">
     <div class="about-text">
-      <h1>About</h1>
-      <p>Dani and Declan</p>
+      <p>
+        We love love and all the moments in between; capturing you at your happiest but don’t worry we won’t miss your bridesmaid’s ugly cry or your groomsmen picking the toothpaste on their suit. We’ll be there to capture your perfect day amongst the chaos of imperfections. We’re real people just like you.
+      </p>
     </div>
-    <div class="about-image">
-      <img src="/about.jpg" alt="Guests at wedding" />
+
+    <div class="about-illustration">
+      <img src="/couple-illustration.png" alt="Cartoon couple dancing" />
+    </div>
+
+    <div class="about-tagline">
+      <h2>When someone farts, it could be either of us.</h2>
     </div>
   </section>
 
-  <style>
-    html, body {
-  background-color: #e9fcfd;
-}
-
-    .about {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      padding: 4rem 8vw 6rem;
-      background-color: #e9fcfd; /* ✅ Light blue background */
-      gap: 4rem;
-      flex-wrap: wrap;
-    }
-
-    .about-text {
-      flex: 1;
-      min-width: 300px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-
-    .about-text h1 {
-      font-size: 4.2rem;
-      color: #e00000;
-      font-family: 'Georgia', serif;
-      margin-bottom: 1rem;
-    }
-
-    .about-text p {
-      font-size: 1.7rem;
-      font-family: 'Georgia', serif;
-      color: #e00000;
-    }
-
-    .about-image {
-      flex: 1.2;
-      min-width: 300px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-end;
-      margin-top: 10rem;
-    }
-
-    .about-image img {
+  <style is:global>
+    .about-hero {
+      position: relative;
       width: 100%;
-      max-width: 650px;
+      padding-top: 120px; /* Adjust this value to match your header's height */
+      overflow: hidden;
+    }
+
+    .about-hero img {
+      width: 100%;
       height: auto;
-      border-radius: 8px;
+      display: block;
       object-fit: cover;
     }
 
-    @media (max-width: 768px) {
-      .about {
-        flex-direction: column;
-        text-align: center;
-        padding: 3rem 2rem 4rem;
-      }
+    .about-vertical {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-size: 6rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
+    }
 
-      .about-text h1 {
+    .about-body {
+      background: white;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .about-text p {
+      font-family: 'Georgia', serif;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+      color: #111;
+    }
+
+    .about-illustration img {
+      width: 180px;
+      height: auto;
+      margin-bottom: 2rem;
+    }
+
+    .about-tagline h2 {
+      font-size: 1.6rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .about-vertical {
         font-size: 3rem;
+        padding: 0 0.5rem;
       }
 
       .about-text p {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
+        padding: 0 1rem;
       }
 
-      .about-image {
-        justify-content: center;
-        margin-top: 2rem;
+      .about-tagline h2 {
+        font-size: 1.3rem;
+        padding: 0 1rem;
       }
     }
   </style>

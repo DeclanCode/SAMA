@@ -1,50 +1,351 @@
 ---
-import Layout from '../layouts/Layout.astro';
 ---
+<header>
+  <a href="/" class="logo">SAMA</a>
+  <nav>
+    <a href="/about">about</a>
+    <a href="/gallery">gallery</a>
+    <a href="/packages">packages</a>
+    <a href="/contact">contact</a>
+  </nav>
+</header>
 
-<Layout title="SAMA - Home">
-  <div class="hero">
-    <div class="hero-text">
-      Capturing your moments in a fucking cool looking steeze
+<div class="hero">
+  <div class="hero-text">
+    
+  </div>
+</div>
+
+<section class="highlight-row">
+  <h2>punchy one liner</h2>
+  <div class="image-row">
+    <img src="/punch 1.jpg" alt="Bride silhouette" class="small" />
+    <img src="/punch 2.jpg" alt="Rings" class="small" />
+    <img src="/punch 3.jpg" alt="Bride with flowers" class="tall" />
+    <img src="/punch 4.jpg" alt="Couple at beach" class="small" />
+    <img src="/punch 5.jpg" alt="Tying dress" class="small" />
+  </div>
+</section>
+
+<section class="story-row">
+  <p class="story-text">
+    This is what we do, what we love, what we&rsquo;re proud of, what we love: laughter, ugly cries, big, small,
+    elopements and the moments you may have missed but your bridal party will tell you the story.
+  </p>
+
+  <a href="/contact" class="contact-link">(Contact Link)</a>
+
+  <div class="story-grid">
+    <img src="/contact 1.jpg" alt="Bride in window" />
+    <img src="/contact 2.jpg" alt="Hands at beach" />
+    
+    <img src="/contact 4.jpg" alt="Wedding guests" />
+    <img src="/contact 3.jpg" alt="Desert venue" />
+  </div>
+</section>
+
+<section class="reviews-row">
+  <p class="about-blurb">
+    Something short about + maybe mention we have film industry background
+  </p>
+  <a href="/about" class="about-link">(About Us Link)</a>
+
+  <h2>REVIEWS</h2>
+
+  <div class="review-row">
+    <div class="review">
+      They&rsquo;re fucking cool and awesome
+      <br /><span class="author">&ndash; Kelly and Alan</span>
+    </div>
+    <div class="review">
+      Thanks for the laughs and capturing our love
+      <br /><span class="author">&ndash; Mac and Krisha</span>
+    </div>
+    <div class="review">
+      We&rsquo;re typically awkward in front of cameras but they&rsquo;re so chill and not awkward.
+      <br /><span class="author">&ndash; Monica and Rory</span>
     </div>
   </div>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap');
+  <div class="contact-footer">
+    <hr />
+    <p>hello@sama.co.nz</p>
+    <p>@sama.stills</p>
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Cormorant+Garamond:wght@700&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Georgia', serif;
+  }
+
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 2rem 3rem;
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(4rem, 7vw, 8rem);
+    color: #be0202;
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  nav {
+    display: flex;
+    gap: 1.5rem;
+    position: absolute;
+    top: 6.5rem;
+    right: 3rem;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  .hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url('/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-text {
+    font-size: 2.8rem;
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+  }
+
+  .highlight-row {
+    background: white;
+    text-align: center;
+    padding: 5rem 2rem;
+  }
+
+  .highlight-row h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    color: #be0202;
+    margin-bottom: 3rem;
+  }
+
+  .image-row {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Align images at their vertical center */
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.image-row img {
+  display: block;
+  object-fit: cover;
+  object-position: center; /* Center the image within its container */
+  width: 250px; /* Increase width for larger images */
+  height: 350px; /* Increase height for larger images */
+  border-radius: 4px;
+}
+
+
+  .image-row img.tall {
+    height: 470px;
+    width: 320px;
+  }
+
+  .story-row {
+    background: white;
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .story-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: #be0202;
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.6;
+  }
+
+  .contact-link {
+    display: inline-block;
+    font-size: 1rem;
+    font-style: italic;
+    color: black;
+    margin-bottom: 3rem;
+    text-decoration: none;
+  }
+
+  .contact-link:hover {
+    text-decoration: underline;
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .story-grid img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .reviews-row {
+    background: white;
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .about-blurb {
+    font-family: 'Cormorant Garamond', serif;
+    color: #be0202;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .about-link {
+    font-size: 0.95rem;
+    font-style: italic;
+    text-decoration: none;
+    color: #222;
+    display: inline-block;
+    margin-bottom: 3rem;
+  }
+
+  .about-link:hover {
+    text-decoration: underline;
+  }
+
+  .reviews-row h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: #be0202;
+    margin-bottom: 2rem;
+  }
+
+  .review-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+
+  .review {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: #be0202;
+    line-height: 1.6;
+    max-width: 300px;
+    flex: 1 1 250px;
+    position: relative;
+    padding-top: 2rem;
+  }
+
+  .author {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .contact-footer {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    color: #be0202;
+  }
+
+  .contact-footer hr {
+    width: 80px;
+    margin: 2rem auto 1rem;
+    border: none;
+    border-top: 1px solid #be0202;
+  }
+
+  .contact-footer p {
+    margin: 0.2rem 0;
+  }
+
+  @media (max-width: 768px) {
+    header {
+      padding: 1.5rem;
+    }
+
+    .logo {
+      font-size: 3rem;
+    }
+
+    nav {
+      top: 5.3rem;
+      right: 1.5rem;
+      gap: 1rem;
+    }
 
     .hero {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      background-image: url('/hero.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      height: 60vh;
+      background-position: top center;
     }
 
     .hero-text {
-      font-size: 2.8rem;
-      color: white;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-      max-width: 90%;
+      font-size: 1.6rem;
+      padding: 0 1rem;
     }
 
-    @media (max-width: 768px) {
-      .hero {
-        height: 60vh;
-        background-position: top center;
-      }
-
-      .hero-text {
-        font-size: 1.6rem;
-        padding: 0 1rem;
-      }
+    .image-row {
+      flex-direction: column;
+      align-items: center;
     }
-  </style>
-</Layout>
+
+    .image-row img,
+    .image-row img.tall {
+      width: 80%;
+      height: auto;
+    }
+
+    .review-row {
+      flex-direction: column;
+    }
+  }
+</style>
